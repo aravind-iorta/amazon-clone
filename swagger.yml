@@ -132,6 +132,52 @@ paths:
           description: Successful operation
         "400":
           description: Invalid category value
+  /product/add/multi/image:
+    post:
+      tags:
+        - product
+      summary: Add a multi image
+      operationId: addImages
+      consumes:
+        - multipart/form-data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+      responses:
+        "201":
+          description: Successful operation
+        "400":
+          description: Invalid category value
+  /product/add/single/image:
+    post:
+      tags:
+        - product
+      summary: Add a image
+      operationId: addImage
+      consumes:
+        - multipart/form-data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        "201":
+          description: Successful operation
+        "400":
+          description: Invalid category value
   /product/add:
     post:
       tags:
